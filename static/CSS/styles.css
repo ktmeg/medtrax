@@ -2,4 +2,37 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  background-color: var(--background);
 }
+
+:root {
+  --background: #EBF2FA;
+  --navy:#1E2749;
+  --med-blue:#457B9D;
+  --lght_blue:#A8DADC;
+  --camel: #af9164;
+
+--default-1: 'Comfortaa', cursive;
+--default-2: 'Prompt', sans-serif;
+--header-font: 'Philosopher', sans-serif;
+
+}
+
+.header {
+  color: var(--navy);
+}
+
+h1 {
+  display: inline;
+  position: relative;
+  font: 200px var(--header-font);
+  letter-spacing: -5px;
+  color:var(--lght_blue); 
+}
+  
+h1:after {
+  content: "MedTrax";
+  position: absolute; left: 10px; top: 5px;
+  color:var(--navy);   
+}
+

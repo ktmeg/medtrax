@@ -3,9 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  {% load static %}
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@600&family=Philosopher:wght@700&family=Prompt&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'CSS/styles.css' %}" />
+  <script src="{% static 'JS/main.js' %}" defer></script>
+  {% block title %}
+  <title>MedTrax</title>
+  {% endblock %}
 </head>
+
+<header>
+  <div class="header">
+    <h1>
+    MedTrax
+    </h1> 
+  </div>
+</header>
+
+{% block content %}
 <body>
   
 </body>
+{% endblock %}
+
 </html>
