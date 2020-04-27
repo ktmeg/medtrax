@@ -23,6 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # path('accounts/', include('registration.backends.simple.urls')),
     path('', views.home, name='home'),
+    path('add-med/', views.add_med, name="add_med"),
 ]
 
 if settings.DEBUG:

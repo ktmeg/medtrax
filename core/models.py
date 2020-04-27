@@ -8,11 +8,11 @@ class Meds(models.Model):
     medication = models.CharField(max_length=100, blank=False)
     increments = models.PositiveIntegerField(blank=False, help_text="How many often should this medicine be administered?")
     quantity = models.PositiveIntegerField(blank=False, help_text="What quantity to be administered?") 
-    start_date = models.DateTimeField(auto_now=False, auto_now_add=False)
-    start_time = models.DateTimeField(auto_now=False, auto_now_add=False)
+    start_date = models.DateField(auto_now=False, auto_now_add=False)
+    start_time = models.TimeField(auto_now=False, auto_now_add=False)
 
     def __str__(self):
-        return f'{self.medication} - {self.qty} to be given every {self.increments}'
+        return f'{self.medication} - {self.quantity} to be given every {self.increments}'
 
     class Meta:
         verbose_name = ('Meds')
