@@ -1,14 +1,18 @@
 from datetime import date
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils import timezone
+
 
 class Meds(models.Model):
     medication = models.CharField(max_length=100, blank=False)
     increments = models.PositiveIntegerField(blank=False, help_text="How many often should this medicine be administered?")
-    qty = models.PositiveIntegerField(blank=False, help_text="What quantity to be administered?") 
+    quantity = models.PositiveIntegerField(blank=False, help_text="What quantity to be administered?") 
+    start_date = models.DateTimeField(auto_now=False, auto_now_add=False)
+    start_time = models.DateTimeField(auto_now=False, auto_now_add=False)
 
     def __str__(self):
-        return f'{self.medication} {self.qty} to be given every {self.increments}'
+        return f'{self.medication} - {self.qty} to be given every {self.increments}'
 
     class Meta:
         verbose_name = ('Meds')
