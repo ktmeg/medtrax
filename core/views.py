@@ -8,7 +8,7 @@ from django.views.decorators.csrf import csrf_exempt
 
 
 def home(request):
-    # user = request.user
-    # meds = request.user.meds_set.all()
+    user = request.user
+    meds = Meds.objects.all()
 
     return render(request, "home.html")
