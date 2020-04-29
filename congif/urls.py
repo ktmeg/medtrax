@@ -21,10 +21,12 @@ from core import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path('accounts/', include('registration.backends.simple.urls')),
+    path('accounts/', include('registration.backends.simple.urls')),
+    # path('accounts/', include('django.contrib.auth.urls')),
     path('', views.home, name='home'),
     path('add-med/', views.add_med, name="add_med"),
 ]
+
 
 if settings.DEBUG:
     import debug_toolbar
