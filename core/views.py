@@ -40,14 +40,14 @@ def add_med(request):
     return render(request, 'core/new_med.html', {'form': form})
 
 
-def login_view(request):
-    if request.method == 'POST':
-        form = LoginForm(request.POST)
-        if form.is_valid():
-            email = form.cleaned_data['email']
-            password = form.cleaned_data['password']
-            user = authenticate(email=email, password=password)
+# def login_view(request):
+#     if request.method == 'POST':
+#         form = LoginForm(request.POST)
+#         if form.is_valid():
+#             email = form.cleaned_data['email']
+#             password = form.cleaned_data['password']
+#             user = authenticate(email=email, password=password)
 
-            if user is not None:
-                form = LoginForm()
-                login(request, user)
+#             if user is not None:
+#                 form = LoginForm()
+#                 login(request, user)
