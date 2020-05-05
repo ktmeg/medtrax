@@ -6,7 +6,7 @@ from .models import Patient, Meds
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth import authenticate, login
 from django.views.generic import CreateView, TemplateView
-
+from django.contrib.auth.models import Group
 
 # class SignUpView(TemplateView):
 #     template_name = 'accounts/login.html'
