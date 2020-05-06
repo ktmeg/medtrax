@@ -22,18 +22,21 @@ from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('accounts/', include('registration.backends.default.urls')),
-    path('', include('django_registration.backends.activation.urls')),
-    # path('accounts/password_change/done/', auth_views.PasswordChangeDoneView.as_view, name='password_change_done'),
-    # path('accounts/password_reset/', auth_views.PasswordResetView.as_view(), name='password_reset'),
-    # path('accounts/password_reset/done/', auth_views.PasswordResetDoneView.as_view(), name='password_reset_done'),
-    # path('accounts/reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
-    # path('accounts/reset/done/', auth_views.PasswordResetCompleteView.as_view(), name='password_reset_complete'),
-    # path('accounts/', include('registration.backends.simple.urls')),
-    # path('login', views.login_view, name='login'),
     path('accounts/', include('django.contrib.auth.urls')),
-    # path('accounts/login/',
-    #      auth_views.LoginView.as_view(template_name='registration/login.html')),
+    # path('accounts/', include('registration.backends.default.urls')),
+    # path('', include('django_registration.backends.activation.urls')),
+    path('accounts/password_change/done/',
+         auth_views.PasswordChangeDoneView.as_view, name='password_change_done'),
+    path('accounts/password_reset/',
+         auth_views.PasswordResetView.as_view(), name='password_reset'),
+    path('accounts/password_reset/done/',
+         auth_views.PasswordResetDoneView.as_view(), name='password_reset_done'),
+    path('accounts/reset/<uidb64>/<token>/',
+         auth_views.PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
+    path('accounts/reset/done/', auth_views.PasswordResetCompleteView.as_view(),
+         name='password_reset_complete'),
+    # path('accounts/login/', include('django.contrib.auth.views.login'),
+    #      {'template_name': 'registration/login.html'}),
 
     path('', views.dashboard, name='dashboard'),
     path('add-med/', views.add_med, name="add_med"),
@@ -49,3 +52,20 @@ if settings.DEBUG:
         # For django versions before 2.0:
         # url(r'^__debug__/', include(debug_toolbar.urls)),
     ] + urlpatterns
+
+
+path('accounts/password_change/done/',
+     auth_views.PasswordChangeDoneView.as_view, name='password_change_done'),
+path('accounts/password_reset/',
+     auth_views.PasswordResetView.as_view(), name='password_reset'),
+path('accounts/password_reset/done/',
+     auth_views.PasswordResetDoneView.as_view(), name='password_reset_done'),
+path('accounts/reset/<uidb64>/<token>/',
+     auth_views.PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
+path('accounts/reset/done/', auth_views.PasswordResetCompleteView.as_view(),
+     name='password_reset_complete'),
+# path('accounts/', include('registration.backends.simple.urls')),
+# path('login', views.login_view, name='login'),
+
+# path('accounts/login/',
+#      auth_views.LoginView.as_view(template_name='registration/login.html')),
