@@ -4,6 +4,12 @@ from django.contrib.auth.forms import UserCreationForm
 from users.models import User
 
 
+class UserSignUpForm(UserCreationForm):
+	class Meta(UserCreationForm.Meta):
+		model = User
+		fields = ('first_name', 'last_name', 'username', 'email')
+
+
 class MedForm(forms.ModelForm):
     class Meta:
         model = Meds

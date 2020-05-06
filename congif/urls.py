@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.conf import settings
 from django.urls import include, path
 from core import views
+from core.views import UserSignUpView
 from django.contrib.auth import views as auth_views
 
 
@@ -37,7 +38,7 @@ urlpatterns = [
          name='password_reset_complete'),
     # path('accounts/login/', include('django.contrib.auth.views.login'),
     #      {'template_name': 'registration/login.html'}),
-
+    path('accounts/signup/', UserSignUpView.as_view(), name='signup'),
     path('', views.dashboard, name='dashboard'),
     path('add-med/', views.add_med, name="add_med"),
 
