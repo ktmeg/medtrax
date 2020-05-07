@@ -1,14 +1,14 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="center form_styles">
-  <h2 class="signup-title">Sign up</h2>
-  <form method="post" class="form_width" novalidate>
+<div class="form_styles">
+  <h2 class="signup-title">Sign up:</h2>
+  <form method="post" novalidate>
     {% csrf_token %}
     <input type="hidden" name="next" value="{{ next }}">
     {{form.as_p}}
     <hr>
-    <div class="center">
+    <div class="center bottom-margin">
       <button type="submit" class="login-button">Sign up</button>
     </div>
   </form>
