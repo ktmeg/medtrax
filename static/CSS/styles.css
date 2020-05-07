@@ -66,6 +66,37 @@ h1:after {
   justify-content: space-evenly; 
 }
 
+.form_styles p, li, h2, span{
+  /* width: 720px; */
+  font-family: var(--default-2);
+  color: var(--navy);
+  font-size: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  
+  /* justify-content: space-around; */
+  align-items: center;
+  margin: 0 auto;
+  justify-content: space-evenly;
+  margin-left: 200px;
+}
+
+.signup-title{
+   /* width: 720px; */
+   font-family: var(--default-2);
+   color: var(--navy);
+   font-size: 1.8rem;
+   display: flex;
+   flex-direction: column;
+   background: black;
+   
+   /* justify-content: space-around; */
+   align-items: center;
+   margin: 0 auto;
+   justify-content: space-evenly;
+   margin-left: 200px;
+}
+
 .login-button {
   font-family: var(--default-2);
   color: var(--navy);
@@ -74,7 +105,7 @@ h1:after {
   padding: .5rem;
   border-radius: 12px;
   align-items: center; 
-  margin: 2rem;
+  margin: 0 2rem;
 }
 
 .center {
@@ -89,3 +120,8 @@ input {
   margin: 1rem;
   font-size: 2rem;
 }
+
+.form_width{
+  max-width: 960px;
+}
+
