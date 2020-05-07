@@ -17,7 +17,7 @@
 <div class="login-form">
 <form method="post" action="{% url 'login' %}">
     {% csrf_token %}
-    <table>
+    <table class="username">
         <tr>
             <td class="text-input">{{ form.username.label_tag }}</td>
             <td class="text-input">{{ form.username }}</td>
@@ -28,15 +28,17 @@
         </tr>
     </table>
     <div class=center>
-    <input type="submit" class="login-button" value="login">
+    <input type="submit" class="login-button bottom-margin" value="login">
     <input type="hidden" name="next" value="{{ next }}">
     </div>
 </form>
+<div class="reg-links center">
 <p>
 If you would like to start a new MedTrax account, <a href ="{% url 'signup' %}">Register Here</a>
 </p>
 
 {# Assumes you setup the password_reset view in your URLconf #}
 <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+</div>
 </div>
 {% endblock %}

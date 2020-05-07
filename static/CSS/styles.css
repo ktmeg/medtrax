@@ -17,6 +17,9 @@
 --header-font: 'Philosopher', sans-serif;
 
 }
+.tdn {
+  text-decoration: none;
+}
 
 .header {
   display: flex;
@@ -66,35 +69,41 @@ h1:after {
   justify-content: space-evenly; 
 }
 
-.form_styles p, li, h2, span{
-  /* width: 720px; */
+.form_styles p, h2 {
   font-family: var(--default-2);
   color: var(--navy);
   font-size: 1.8rem;
   display: flex;
   flex-direction: column;
-  
-  /* justify-content: space-around; */
   align-items: center;
   margin: 0 auto;
   justify-content: space-evenly;
-  margin-left: 200px;
+}
+
+.form_styles li, span{
+  font-family: var(--default-2);
+  color: var(--navy);
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  justify-content: space-evenly;
+  margin-bottom: 1.5rem;
 }
 
 .signup-title{
    /* width: 720px; */
    font-family: var(--default-2);
    color: var(--navy);
-   font-size: 1.8rem;
+   font-size: 2.4rem;
    display: flex;
    flex-direction: column;
-   background: black;
-   
-   /* justify-content: space-around; */
    align-items: center;
    margin: 0 auto;
    justify-content: space-evenly;
-   margin-left: 200px;
+   margin-bottom: 3rem;
+   /* margin-left: 200px; */
 }
 
 .login-button {
@@ -121,7 +130,28 @@ input {
   font-size: 2rem;
 }
 
-.form_width{
-  max-width: 960px;
+.bottom-margin {
+  margin-top: 2rem;
+  margin-bottom: 8rem;
 }
 
+.username {
+  margin-top: 2.5rem;
+}
+
+.reg-links {
+  margin-bottom: 4rem;
+}
+
+.reg-links a {
+  text-decoration: none;
+  color: var(--navy);
+}
+
+.reg-links a:visited {
+  color: var(--med-blue);
+}
+
+.reg-links a:hover {
+  font-weight: bolder;
+}
