@@ -106,7 +106,7 @@ h1:after {
    /* margin-left: 200px; */
 }
 
-.login-button {
+.button {
   font-family: var(--default-2);
   color: var(--navy);
   background-color: var(--lght_blue);
@@ -154,4 +154,25 @@ input {
 
 .reg-links a:hover {
   font-weight: bolder;
+}
+
+.meds-cont {
+  margin: 2rem;
+  font-family: var(--default-2);
+  font-size: 2rem;
+  color: var(--navy);
+}
+
+.meds {
+  /* width: 70%; */
+  height: 10rem;
+  border: var(--camel) solid 5px;
+  border-radius: 12px;
+  margin: 1.5rem;
+
+
+}
+
+.top-margin {
+  margin-top: 3rem;
 }

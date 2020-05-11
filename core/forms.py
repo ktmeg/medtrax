@@ -3,7 +3,6 @@ from .models import Meds, Patient
 from django_registration.forms import RegistrationForm
 from users.models import User
 
-
 class UserSignUpForm(RegistrationForm):
     class Meta(RegistrationForm.Meta):
         model = User
