@@ -1,6 +1,33 @@
 {% extends 'base.html' %} {% block content %}
-<form class="form" action="{% url 'new_med' %}" method="post">
-    {% csrf_token %} {{ form.as_p }}
-    <input type="submit" value="Submit" />
+
+
+<form method="post" action="{% url 'new_med' %}">
+    {% csrf_token %}
+    <table class="username">
+        <tr>
+            <td class="text-input">{{ form.medication.label_tag }}</td>
+            <td class="text-input">{{ form.medication}}</td>
+        </tr>
+        <tr>
+            <td>{{ form.increments.label_tag }}</td>
+            <td class="text-input">{{ form.increments }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.quantity.label_tag }}</td>
+            <td class="text-input">{{ form.quantity }}</td>
+        </tr>
+        <!-- <tr>
+            <td>{{ form.start_date.label_tag }}</td>
+            <td class="text-input">{{ form.start_date }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.start_time.label_tag }}</td>
+            <td class="text-input">{{ form.start_time }}</td>
+        </tr> -->
+    </table>
+    <div class=center>
+        <input type="submit" class="login-button bottom-margin" value="Submit">
+
+    </div>
 </form>
 {% endblock %}

@@ -14,6 +14,8 @@ class MedForm(forms.ModelForm):
     class Meta:
         model = Meds
         fields = ['medication', 'increments',
-                  'quantity', 'start_date', 'start_time']
+                  'quantity']
+
+# , 'start_date', 'start_time'
 
 # UserCreationForm
