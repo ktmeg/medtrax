@@ -9,6 +9,7 @@ from django.views.generic import CreateView, TemplateView
 
 # =================Sign-up View========================
 
+
 class UserSignUpView(CreateView):
     model = User
     form_class = UserSignUpForm
@@ -20,7 +21,6 @@ class UserSignUpView(CreateView):
         return redirect('login')
 
 
-
 def dashboard(request):
     user = request.user
     meds = Meds.objects.all()
@@ -28,16 +28,21 @@ def dashboard(request):
     return render(request, "core/dashboard.html", {'meds': meds})
 
 
-def add_med(request):
+def med(request, pk):
+    meds = Meds.objects.all()
+
+    return render(request, 'core/med.html', {'meds': meds})
+
+
+def new_med(request):
     user = request.user
+    # med = None
     if request.method == "POST":
         form = MedForm(request.POST)
         if form.is_valid():
             med = form.save()
-            return redirect('med', med.pk)
+            return redirect('dashboard')
     else:
         form = MedForm()
 
     return render(request, 'core/new_med.html', {'form': form})
-
-

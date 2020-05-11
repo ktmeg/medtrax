@@ -11,8 +11,8 @@ class Meds(models.Model):
         blank=False, help_text="How many often should this medicine be administered?")
     quantity = models.PositiveIntegerField(
         blank=False, help_text="What quantity to be administered?")
-    start_date = models.DateField(auto_now=False, auto_now_add=False)
-    start_time = models.TimeField(auto_now=False, auto_now_add=False)
+    # start_date = models.DateField(auto_now=False, auto_now_add=False)
+    # start_time = models.TimeField(auto_now=False, auto_now_add=False)
 
     def __str__(self):
         return f'{self.medication} - {self.quantity} to be given every {self.increments}'
@@ -29,4 +29,3 @@ class Patient(models.Model):
 
     def __str__(self):
         return f'{self.name}'
-

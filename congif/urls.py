@@ -40,7 +40,8 @@ urlpatterns = [
     #      {'template_name': 'registration/login.html'}),
     path('accounts/signup/', UserSignUpView.as_view(), name='signup'),
     path('', views.dashboard, name='dashboard'),
-    path('add-med/', views.add_med, name="add_med"),
+    path('med/<int:pk>', views.med, name='med'),
+    path('new-med/', views.new_med, name="new_med"),
 
 ]
 
@@ -55,16 +56,16 @@ if settings.DEBUG:
     ] + urlpatterns
 
 
-path('accounts/password_change/done/',
-     auth_views.PasswordChangeDoneView.as_view, name='password_change_done'),
-path('accounts/password_reset/',
-     auth_views.PasswordResetView.as_view(), name='password_reset'),
-path('accounts/password_reset/done/',
-     auth_views.PasswordResetDoneView.as_view(), name='password_reset_done'),
-path('accounts/reset/<uidb64>/<token>/',
-     auth_views.PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
-path('accounts/reset/done/', auth_views.PasswordResetCompleteView.as_view(),
-     name='password_reset_complete'),
+# path('accounts/password_change/done/',
+#      auth_views.PasswordChangeDoneView.as_view, name='password_change_done'),
+# path('accounts/password_reset/',
+#      auth_views.PasswordResetView.as_view(), name='password_reset'),
+# path('accounts/password_reset/done/',
+#      auth_views.PasswordResetDoneView.as_view(), name='password_reset_done'),
+# path('accounts/reset/<uidb64>/<token>/',
+#      auth_views.PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
+# path('accounts/reset/done/', auth_views.PasswordResetCompleteView.as_view(),
+#      name='password_reset_complete'),
 # path('accounts/', include('registration.backends.simple.urls')),
 # path('login', views.login_view, name='login'),
 
