@@ -1,11 +1,20 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-
-<a href="{% url 'new_med' %}">New medication</a>
-
+<div class="center top-margin">
+<a class="button tdn" href="{% url 'new_med' %}">New medication</a>
+</div>
+<br>
+<div class="meds-cont center">
 {% for med in meds %}
-{{med.medication}}
+<div class="meds">
+Medication Name: {{med.medication}}
+<br>
+To be administered every {{med.increments}} {{med.unit}}
+<br>
+Number per dose:{{med.quantity}}
+</div>
 {% endfor %}
+</div>
 
 {% endblock %}

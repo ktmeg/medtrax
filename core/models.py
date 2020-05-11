@@ -11,6 +11,8 @@ class Meds(models.Model):
         blank=False, help_text="How many often should this medicine be administered?")
     quantity = models.PositiveIntegerField(
         blank=False, help_text="What quantity to be administered?")
+    MedUnits = models.TextChoices('MedUnits', 'Hours Days Month')
+    unit = models.CharField(blank=False, choices=MedUnits.choices, max_length=30, default='misc')
     # start_date = models.DateField(auto_now=False, auto_now_add=False)
     # start_time = models.TimeField(auto_now=False, auto_now_add=False)
 
