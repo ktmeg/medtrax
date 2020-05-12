@@ -9,12 +9,20 @@ class UserSignUpForm(RegistrationForm):
         fields = ('first_name', 'last_name', 'username', 'email')
 
 
+class DateInput(forms.DateInput):
+	input_type = 'date'
+
+# class TimeInput(forms.TimePicker):
+#     input_type = 'time'
+
+
 class MedForm(forms.ModelForm):
     class Meta:
         model = Meds
+        widgets = {'start_date' : DateInput}
         fields = ['medication', 'increments',
-                  'quantity']
+                  'quantity', 'start_date', 'start_time']
 
-# , 'start_date', 'start_time'
+
 
 # UserCreationForm

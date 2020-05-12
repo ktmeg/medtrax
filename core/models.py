@@ -1,4 +1,4 @@
-from datetime import date
+from datetime import date, time
 from django.db import models
 from django.contrib.auth.models import User
 from users.models import User
@@ -13,8 +13,8 @@ class Meds(models.Model):
         blank=False, help_text="What quantity to be administered?")
     MedUnits = models.TextChoices('MedUnits', 'Hours Days Month')
     unit = models.CharField(blank=False, choices=MedUnits.choices, max_length=30, default='misc')
-    # start_date = models.DateField(auto_now=False, auto_now_add=False)
-    # start_time = models.TimeField(auto_now=False, auto_now_add=False)
+    start_date = models.DateField(auto_now=False, auto_now_add=False, default='', null=True, blank=True)
+    start_time = models.TimeField(auto_now_add=False, auto_now=False, default='', null=True, blank=True)
 
     def __str__(self):
         return f'{self.medication} - {self.quantity} to be given every {self.increments}'
