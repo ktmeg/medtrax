@@ -6,6 +6,9 @@ from .models import Patient, Meds
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth import authenticate, login
 from django.views.generic import CreateView, TemplateView
+from django.contrib.auth.decorators import login_required
+
+
 
 # =================Sign-up View========================
 
@@ -20,20 +23,20 @@ class UserSignUpView(CreateView):
         login(self.request, user)
         return redirect('login')
 
-
+@login_required
 def dashboard(request):
     user = request.user
     meds = Meds.objects.all()
 
     return render(request, "core/dashboard.html", {'meds': meds})
 
-
+@login_required
 def med(request, pk):
     meds = Meds.objects.all()
 
     return render(request, 'core/med.html', {'meds': meds})
 
-
+@login_required
 def new_med(request):
     user = request.user
     # med = None
