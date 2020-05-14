@@ -14,13 +14,14 @@ class DateInput(forms.DateInput):
     input_type = 'date'
 
 
-# class TimeInput(forms.TimeInput):
-#     input_type = 'time'
+class TimeInput(forms.TimeInput):
+    input_type = 'time'
 
 
 class MedForm(forms.ModelForm):
     class Meta:
         model = Meds
-        widgets = {'start_date': DateInput}
+        widgets = {'start_date': DateInput,
+                    'start_time': TimeInput}
         fields = ['medication', 'increments',
                   'quantity', 'start_date', 'start_time']
