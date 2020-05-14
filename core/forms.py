@@ -1,4 +1,3 @@
-from congif import settings
 from django import forms
 from .models import Meds, Patient
 from django_registration.forms import RegistrationForm
@@ -20,14 +19,8 @@ class DateInput(forms.DateInput):
 
 
 class MedForm(forms.ModelForm):
-    start_date = DateInput(input_formats=settings.DATE_INPUT_FORMATS)
-
     class Meta:
         model = Meds
-        # widget = forms.DateInput(format='%m/%d/%Y')
+        widgets = {'start_date': DateInput}
         fields = ['medication', 'increments',
                   'quantity', 'start_date', 'start_time']
-
-
-# UserCreationForm
-# , 'start_date', 'start_time'

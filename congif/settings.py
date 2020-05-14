@@ -102,7 +102,6 @@ LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'America/New_York'
 
-DATE_INPUT_FORMATS = ('%d-%m-%Y', '%Y-%m-%d')
 
 USE_I18N = True
 
