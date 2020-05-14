@@ -16,9 +16,9 @@ class Meds(models.Model):
     unit = models.CharField(
         blank=False, choices=MedUnits.choices, max_length=30, default='misc')
     start_date = models.DateField(
-        blank=True, null=True)
+        auto_now=False, auto_now_add=False, null=True, blank=True)
     start_time = models.TimeField(
-        blank=True, null=True)
+        auto_now=False, auto_now_add=False, null=True, blank=True)
 
     def __str__(self):
         return f'{self.medication} - {self.quantity} to be given every {self.increments}'
