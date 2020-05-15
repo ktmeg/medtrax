@@ -2,19 +2,22 @@
 {% load static %}
 {% block content %}
 <div class="center top-margin">
-<a class="button tdn" href="{% url 'new_med' %}">New medication</a>
+    <a class="button tdn" href="{% url 'new_med' %}">New medication</a>
 </div>
 <br>
 <div class="meds-cont center">
-{% for med in meds %}
-<div class="meds">
-Medication Name: {{med.medication}}
-<br>
-To be administered every {{med.increments}} {{med.unit}}
-<br>
-Number per dose: {{med.quantity}}
-</div>
-{% endfor %}
+    {% for med in meds %}
+    <div class="meds">
+        Medication Name: {{med.medication}}
+        <br>
+        To be administered every {{med.increments}} {{med.unit}}
+        <br>
+        Number per dose: {{med.quantity}}
+        <br>
+        <p id='date'>Start date: {{med.start_date}}</p>
+        <p id='time'>Start time: {{med.start_time}}</p>
+    </div>
+    {% endfor %}
 </div>
 
 {% endblock %}

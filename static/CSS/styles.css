@@ -165,7 +165,7 @@ input, select{
 
 .meds {
   /* width: 70%; */
-  height: 10rem;
+  /* height: 10rem; */
   border: var(--camel) solid 5px;
   border-radius: 12px;
   margin: 1.5rem;
