@@ -50,4 +50,3 @@ def new_med(request):
 
     return render(request, 'core/new_med.html', {'form': form})
 
-# calculate the increments for next time to take meds

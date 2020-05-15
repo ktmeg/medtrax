@@ -21,7 +21,7 @@ class Meds(models.Model):
         auto_now=False, auto_now_add=False, null=True, blank=True)
 
     def __str__(self):
-        return f'{self.medication} - {self.quantity} to be given every {self.increments}'
+        return f'{self.medication} - {self.quantity} to be given every {self.increments} {self.unit}'
 
     class Meta:
         verbose_name = ('Meds')

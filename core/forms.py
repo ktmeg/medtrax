@@ -23,5 +23,5 @@ class MedForm(forms.ModelForm):
         model = Meds
         widgets = {'start_date': DateInput,
                     'start_time': TimeInput}
-        fields = ['medication', 'increments',
+        fields = ['medication', 'increments', 'unit',
                   'quantity', 'start_date', 'start_time']
