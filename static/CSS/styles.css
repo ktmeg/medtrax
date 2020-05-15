@@ -121,7 +121,7 @@ h1:after {
   text-align: center;
 }
 
-input {
+input, select{
   border-radius: 12px;
   background-color: white;
   min-width: 10rem;
