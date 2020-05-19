@@ -1,11 +1,9 @@
 let today = new Date()
 var dd = String(today.getDate()).padStart(2, '0');
-var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+var mm = String(today.getMonth() + 1).padStart(2, '0');
 var yyyy = today.getFullYear();
 let time = document.querySelectorAll('#time')
-let date = document.querySelectorAll('#date')
 
-console.log(date)
 
 if (mm == 01) {
     mm = "January"
@@ -35,16 +33,27 @@ if (mm == 01) {
 
 today = mm + ' ' + dd + ', ' + yyyy;
 
-console.log(today)
+
+let date = document.querySelectorAll('#date')
+let alldates = []
+
+// dates.push(document.querySelectorAll('#date'))
+
+alldates.push(date.innerHTML)
+console.log(alldates)
 
 function reminder() {
 
-    // for (let dates of date) {
-
-    if (date == ("Start date: " + today)) {
-        console.log("Hello")
+    for (let i = 0; i < alldates.length; i++) {
+        console.log(date)
+        if (alldates[i]== ("Start date: " + today)) {
+            console.log("Hello")
+        } else {
+            console.log("woops")
+        }
     }
-    // }
 }
 
 reminder()
+
+// let i = 0; i < dates.length; i++
