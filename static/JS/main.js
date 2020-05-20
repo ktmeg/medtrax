@@ -34,19 +34,20 @@ if (mm == 01) {
 today = mm + ' ' + dd + ', ' + yyyy;
 
 
-let date = document.querySelectorAll('#date')
-let alldates = []
+// let date = document.querySelectorAll('#date')
+let alldates = [
+    document.querySelectorAll('#date')
+]
 
 // dates.push(document.querySelectorAll('#date'))
 
-alldates.push(date.innerHTML)
+// alldates.push(date.innerHTML)
 console.log(alldates)
 
-function reminder() {
+function reminder(alldates) {
 
     for (let i = 0; i < alldates.length; i++) {
-        console.log(date)
-        if (alldates[i]== ("Start date: " + today)) {
+        if (alldates[i] == ("Start date: " + today)) {
             console.log("Hello")
         } else {
             console.log("woops")
