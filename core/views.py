@@ -9,7 +9,6 @@ from django.views.generic import CreateView, TemplateView
 from django.contrib.auth.decorators import login_required
 
 
-
 # =================Sign-up View========================
 
 
@@ -23,6 +22,7 @@ class UserSignUpView(CreateView):
         login(self.request, user)
         return redirect('login')
 
+
 @login_required
 def dashboard(request):
     user = request.user
@@ -30,11 +30,15 @@ def dashboard(request):
 
     return render(request, "core/dashboard.html", {'meds': meds})
 
+
 @login_required
 def med(request, pk):
     meds = Meds.objects.all()
 
     return render(request, 'core/med.html', {'meds': meds})
+
+# =========================================MED FORMS===================================================
+
 
 @login_required
 def new_med(request):
@@ -50,3 +54,15 @@ def new_med(request):
 
     return render(request, 'core/new_med.html', {'form': form})
 
+
+@login_required
+def edit_med(request, pk):
+    med = get_object_or_404(Meds, pk=pk)
+    if request.method == "POST":
+        form = MedForm(request.POST, instance=med)
+        if form.is_valid():
+            form.save()
+        return redirect('dashboard')
+    else:
+        form = MedForm(instance=med)
+    return render(request, 'core/edit_med.html', {'form': form, 'pk': pk, 'med': med})

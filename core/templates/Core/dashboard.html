@@ -16,6 +16,7 @@
         <br>
         <p id='date'>Start date: {{med.start_date}}</p>
         <p id='time'>Start time: {{med.start_time}}</p>
+        <a class="button tdn" href="{% url 'edit_med' pk=med.pk %}">Edit Medication</a>
     </div>
     {% endfor %}
 </div>

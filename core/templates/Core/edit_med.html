@@ -1,0 +1,39 @@
+{% extends 'base.html' %} {% block content %}
+
+<!-- add units  -->
+<div class="login-form form_styles">
+    <form method="post" action="">
+        {% csrf_token %}
+        <table class="username">
+            <tr>
+                <td>{{ form.medication.label_tag }}</td>
+                <td class="center">{{ form.medication}}</td>
+            </tr>
+            <tr>
+                <td>{{ form.increments.label_tag }}</td>
+                <td>{{ form.increments }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.unit.label_tag }}</td>
+                <td>{{ form.unit }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.quantity.label_tag }}</td>
+                <td>{{ form.quantity }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.start_date.label_tag }}</td>
+                <td>{{ form.start_date }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.start_time.label_tag }}</td>
+                <td>{{ form.start_time }}</td>
+            </tr>
+        </table>
+        <div class=center>
+            <input type="submit" class="login-button bottom-margin" value="Update">
+
+        </div>
+    </form>
+</div>
+{% endblock %}

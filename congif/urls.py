@@ -42,6 +42,7 @@ urlpatterns = [
     path('', views.dashboard, name='dashboard'),
     path('med/<int:pk>', views.med, name='med'),
     path('new-med/', views.new_med, name="new_med"),
+    path('edit-med/<int:pk>', views.edit_med, name="edit_med"),
 
 ]
 
