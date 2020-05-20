@@ -66,3 +66,10 @@ def edit_med(request, pk):
     else:
         form = MedForm(instance=med)
     return render(request, 'core/edit_med.html', {'form': form, 'pk': pk, 'med': med})
+
+@login_required
+def delete_med(request, pk):
+    med = get_object_or_404(Meds, pk=pk)
+    med.delete()
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+

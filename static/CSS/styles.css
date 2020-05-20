@@ -169,10 +169,22 @@ input, select{
   border: var(--camel) solid 5px;
   border-radius: 12px;
   margin: 1.5rem;
+  padding: 2rem;
 
 
 }
 
 .top-margin {
   margin-top: 3rem;
+}
+
+.edit-delete {
+  font-family: var(--default-2);
+  color: var(--navy);
+  background-color: var(--lght_blue);
+  font-size: 1.2rem;
+  padding: .5rem;
+  border-radius: 12px;
+  align-items: center; 
+  margin: 2rem;
 }
