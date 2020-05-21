@@ -78,17 +78,17 @@ WSGI_APPLICATION = 'congif.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-DATABASES = {'default': env.db()}
+# DATABASES = {'default': env.db()}
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'medtrax',
-#         'USER': 'medtrax',
-#         'HOST': '127.0.0.1',
-#         'PORT': '5432',
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'medtrax',
+        'USER': 'medtrax',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
+    }
+}
 
 
 
@@ -151,4 +151,9 @@ INTERNAL_IPS = [
 
 import django_heroku
 django_heroku.settings(locals())
+del DATABASES['default']['OPTIONS']['sslmode']
+
+
+
+
 
