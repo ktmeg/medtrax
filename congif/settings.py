@@ -1,4 +1,5 @@
 
+import django_heroku
 import os
 from pathlib import Path
 
@@ -91,7 +92,6 @@ DATABASES = {
 }
 
 
-
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
 
@@ -139,7 +139,7 @@ SIMPLE_BACKEND_REDIRECT_URL = '/'
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
-LOGIN_URL = '/accounts/login/'
+# LOGIN_URL = '/accounts/login/'
 
 # Debug toolbar config
 
@@ -149,11 +149,6 @@ INTERNAL_IPS = [
     # ...
 ]
 
-import django_heroku
 django_heroku.settings(locals())
 del DATABASES['default']['OPTIONS']['sslmode']
-
-
-
-
 
