@@ -61,7 +61,7 @@ ROOT_URLCONF = 'congif.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -151,4 +151,3 @@ INTERNAL_IPS = [
 
 django_heroku.settings(locals())
 del DATABASES['default']['OPTIONS']['sslmode']
-

@@ -7,6 +7,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth import authenticate, login
 from django.views.generic import CreateView, TemplateView
 from django.contrib.auth.decorators import login_required
+from django.db.models.functions import Cast
 
 
 # =================Sign-up View========================
@@ -67,9 +68,9 @@ def edit_med(request, pk):
         form = MedForm(instance=med)
     return render(request, 'core/edit_med.html', {'form': form, 'pk': pk, 'med': med})
 
+
 @login_required
 def delete_med(request, pk):
     med = get_object_or_404(Meds, pk=pk)
     med.delete()
     return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
-
