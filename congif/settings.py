@@ -80,6 +80,18 @@ WSGI_APPLICATION = 'congif.wsgi.application'
 
 DATABASES = {'default': env.db()}
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'medtrax',
+#         'USER': 'medtrax',
+#         'HOST': '127.0.0.1',
+#         'PORT': '5432',
+#     }
+# }
+
+
+
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
 
@@ -136,3 +148,7 @@ INTERNAL_IPS = [
     '127.0.0.1',
     # ...
 ]
+
+import django_heroku
+django_heroku.settings(locals())
+
