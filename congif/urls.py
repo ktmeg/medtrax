@@ -26,6 +26,7 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     # path('accounts/', include('registration.backends.default.urls')),
     # path('', include('django_registration.backends.activation.urls')),
+    path('accounts/password_change/', auth_views.PasswordChangeView.as_view(), name='password_change'),
     path('accounts/password_change/done/',
          auth_views.PasswordChangeDoneView.as_view, name='password_change_done'),
     path('accounts/password_reset/',
