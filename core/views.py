@@ -1,4 +1,4 @@
-from django.contrib.auth.models import User
+# from django.contrib.auth.models import User
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import JsonResponse, HttpResponseRedirect, HttpResponsePermanentRedirect
 from .forms import MedForm, UserSignUpForm
@@ -8,7 +8,7 @@ from django.contrib.auth import authenticate, login
 from django.views.generic import CreateView, TemplateView
 from django.contrib.auth.decorators import login_required
 from django.db.models.functions import Cast
-
+from users.models import User
 
 # =================Sign-up View========================
 
