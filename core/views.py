@@ -29,7 +29,7 @@ def dashboard(request):
     user = request.user
     meds = Meds.objects.all()
 
-    return render(request, "core/dashboard.html", {'meds': meds})
+    return render(request, 'core/dashboard.html', {'meds': meds})
 
 
 @login_required
