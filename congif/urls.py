@@ -1,8 +1,8 @@
 from django.contrib import admin
 from django.conf import settings
 from django.urls import include, path
-from core import views
-from core.views import UserSignUpView
+from medtrax import views
+from medtrax.views import UserSignUpView
 from django.contrib.auth import views as auth_views
 
 
