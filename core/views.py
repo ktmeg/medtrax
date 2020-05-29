@@ -13,31 +13,31 @@ from users.models import User
 # =================Sign-up View========================
 
 
-class UserSignUpView(CreateView):
-    model = User
-    form_class = UserSignUpForm
-    template_name = 'registration/signup.html'
-
-    def home(request):
-        if request.user.is_authenticated:
-            return redirect('dashboard')
-        return render(request, 'dashboard.html')
-
-    def form_valid(self, form):
-        user = form.save()
-        user.save()
-        login(self.request, user)
-        return redirect('dashboard')
-
 # class UserSignUpView(CreateView):
 #     model = User
 #     form_class = UserSignUpForm
 #     template_name = 'registration/signup.html'
 
+#     def home(request):
+#         if request.user.is_authenticated:
+#             return redirect('dashboard')
+#         return render(request, 'dashboard.html')
+
 #     def form_valid(self, form):
 #         user = form.save()
+#         user.save()
 #         login(self.request, user)
-#         return redirect('login')
+#         return redirect('dashboard')
+
+class UserSignUpView(CreateView):
+    model = User
+    form_class = UserSignUpForm
+    template_name = 'registration/signup.html'
+
+    def form_valid(self, form):
+        user = form.save()
+        login(self.request, user)
+        return redirect('login')
 
 
 @login_required
