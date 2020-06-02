@@ -84,12 +84,19 @@ let alltimes = document.querySelectorAll('#time')
 for (let i = 0; i < alltimes.length; i++) {
     console.log(alltimes[i].innerHTML)
     if (today.getHours() > 12) {
-        var time = (today.getHours() - 12 ) + ":" + today.getMinutes() + ' p.m.';
-    } else {
-            var time = today.getHours() + ":" + today.getMinutes() + ' a.m.';
+        if (today.getMinutes() > 0) {
+            var time = (today.getHours() - 12) + ":" + today.getMinutes() + ' p.m.';
+        } else {
+            var time = (today.getHours() - 12) + " p.m."
         }
-    
-    console.log(time)
+    } else {
+        if (today.getMinutes() > 0) {
+            var time = today.getHours() + ":" + today.getMinutes() + ' a.m.';
+        } else {
+            var time = today.getHours() + " a.m."
+        }
+
+    }
     // var minutes = 1000 * 60;
     // var now = Date.now();
     // if alltimes[i] == Math.round(now / minutes) {
