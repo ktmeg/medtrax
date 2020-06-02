@@ -80,7 +80,7 @@ h1:after {
   justify-content: space-evenly;
 }
 
-.form_styles li, span{
+.form_styles li{
   font-family: var(--default-2);
   color: var(--navy);
   font-size: 1rem;
