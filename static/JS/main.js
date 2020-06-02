@@ -35,26 +35,51 @@ today = mm + ' ' + dd + ', ' + yyyy;
 
 
 // let date = document.querySelectorAll('#date')
-let alldates = [
-    document.querySelectorAll('#date')
-]
-
 // dates.push(document.querySelectorAll('#date'))
 
 // alldates.push(date.innerHTML)
-console.log(alldates)
+let alldates = document.querySelectorAll('#date')
 
-function reminder(alldates) {
 
-    for (let i = 0; i < alldates.length; i++) {
-        if (alldates[i] == ("Start date: " + today)) {
-            console.log("Hello")
-        } else {
-            console.log("woops")
-        }
-    }
+console.log(alldates[0].innerHTML)
+
+for (let i = 0; i < alldates.length; i++) {
+    console.log(alldates[i].innerHTML)
 }
 
-reminder()
+// function reminder(alldates) {
+
+//     for (let i = 0; i < alldates.length; i++) {
+//         if (alldates[i] == ("Start date: " + today)) {
+//             console.log("Hello")
+//         } else {
+//             console.log("woops")
+//         }
+//     }
+// }
+
+// reminder()
 
 // let i = 0; i < dates.length; i++
+
+
+// var x = document.querySelector('#time')
+var x = 5; //minutes interval
+var times = []; // time array
+var tt = 0; // start time
+var ap = ['AM', 'PM']; // AM-PM
+
+//loop to increment the time and push results in array
+for (var i = 0; tt < 24 * 60; i++) {
+    var hh = Math.floor(tt / 60); // getting hours of day in 0-24 format
+    var mm = (tt % 60); // getting minutes of the hour in 0-55 format
+    times[i] = ("0" + (hh % 12)).slice(-2) + ':' + ("0" + mm).slice(-2) + ap[Math.floor(hh / 12)]; // pushing data in array in [00:00 - 12:00 AM/PM format]
+    tt = tt + x;
+}
+
+// console.log(times);
+
+time = document.querySelector('#time')
+
+console.log(time.innerHTML)
+
