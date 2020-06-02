@@ -10,12 +10,14 @@
     <div class="meds">
         Medication Name: {{med.medication}}
         <br>
-        To be administered every <span id="increments">{{med.increments}}</span> {{med.unit}}
+        To be administered every <span id="increments">{{med.increments}}</span> <span id='unit'>{{med.unit}}</span>
         <br>
         Number per dose: {{med.quantity}}
         <br>
         <p>Start date: <span id='date'>{{med.start_date}}</span></p>
         <p>Start time: <span id='time'>{{med.start_time}}</span></p>
+        Next medication dosage: <span id="next_dose"></span>
+        <br>
         <a class="edit-delete tdn" href="{% url 'edit_med' pk=med.pk %}">Edit Medication</a>
         <a class="edit-delete tdn" href="{% url 'delete_med' pk=med.pk %}">Delete Medication</a>
 
