@@ -3,7 +3,7 @@ var dd = String(today.getDate()).padStart(2, '0');
 var mm = String(today.getMonth() + 1).padStart(2, '0');
 var yyyy = today.getFullYear();
 // // let time = document.querySelectorAll('#time')
-
+// moment().format('LT')
 
 if (mm == 01) {
     mm = "January"
@@ -96,12 +96,26 @@ function nextDose() {
     let increments = document.querySelectorAll('#increments')
     let unit = document.querySelectorAll('#unit')
     let nextDose = document.querySelectorAll('#next_dose')
+    let startTime = document.querySelectorAll('#time')
     for (let i = 0; i < unit.length; i++) {
         let today = new Date()
+
         if (unit[i].innerHTML == "Hours") {
-            today = today.setHours(today.getHours() + increments[i].innerHTML)
-            parseInt(today)
-            txt = document.createTextNode(today)
+            console.log(today.getHours())
+            hours = (today.getHours())
+            console.log(hours)
+            // console.log(parseInt(startTime))  returns NaN
+            today = mm + ' ' + dd + ', ' + yyyy
+            startDate = document.querySelectorAll('#date')
+            console.log(startDate)
+            let newTime = parseInt(startTime[i].innerHTML, 10) + parseInt(increments[i].innerHTML);
+            if (startTime[i].innerHTML.includes("p.m.")) {
+                newTime = startDate[i].innerHTML + ' ' + newTime + " p.m."
+            } else {
+                newTime = startDate[i].innerHTML + ' ' + newTime + " a.m."
+            }
+            txt = document.createTextNode(newTime)
+
             nextDose[i].appendChild(txt)
             console.log("Still working")
         } else if (unit[i].innerHTML == "Days") {
@@ -124,3 +138,10 @@ nextDose()
 // dt.setHours(dt.getHours() + 2);
 
 // today.setHours(today.getHours() + increments[i])
+
+ // today = today.setHours(today.getHours() + increments[i].innerHTML)
+            // hours = Math.floor(today / 1000 / 60 / 60)
+            // console.log(hours)
+            // parseInt(today)
+
+            // + parseInt(increments[i].innerHTML)
