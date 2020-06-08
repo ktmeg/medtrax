@@ -97,23 +97,28 @@ function nextDose() {
     let unit = document.querySelectorAll('#unit')
     let nextDose = document.querySelectorAll('#next_dose')
     let startTime = document.querySelectorAll('#time')
+    let upcoming = document.querySelectorAll('#upcoming')
     for (let i = 0; i < unit.length; i++) {
         let today = new Date()
 
         if (unit[i].innerHTML == "Hours") {
-            console.log(today.getHours())
+            // console.log(today.getHours())
             hours = (today.getHours())
-            console.log(hours)
+            // console.log(hours)
             // console.log(parseInt(startTime))  returns NaN
             today = mm + ' ' + dd + ', ' + yyyy
             startDate = document.querySelectorAll('#date')
-            console.log(startDate)
+            // console.log(startDate)
             let newTime = parseInt(startTime[i].innerHTML, 10) + parseInt(increments[i].innerHTML);
             let futureDose = (newTime + parseInt(increments[i].innerHTML))
-            console.log(futureDose)
-            for(let j = 0; j < 7; j++) {
-                let test = futureDose += parseInt(increments[i].innerHTML)
-                console.log(parseInt(test))
+            // console.log(futureDose)
+            for (let j = 0; j < 7; j++) {
+                let upcomingDoses = futureDose += parseInt(increments[i].innerHTML)
+                upcomingText = document.createTextNode(upcomingDoses)
+                upcoming[i].appendChild(upcomingText)
+                let space = document.createTextNode(' ')
+                upcoming[i] + space
+                console.log(parseInt(upcomingDoses))
             }
 
             if (startTime[i].innerHTML.includes("p.m.")) {
@@ -122,10 +127,11 @@ function nextDose() {
                 newTime = startDate[i].innerHTML + ' ' + newTime + " a.m."
             }
             txt = document.createTextNode(newTime)
-            console.log(newTime)
+            // console.log(newTime)
 
             nextDose[i].appendChild(txt)
-            console.log("Still working")
+
+            // console.log("Still working")
         } else if (unit[i].innerHTML == "Days") {
             txt = document.createTextNode("Days")
             nextDose[i].appendChild(txt)
