@@ -109,12 +109,20 @@ function nextDose() {
             startDate = document.querySelectorAll('#date')
             console.log(startDate)
             let newTime = parseInt(startTime[i].innerHTML, 10) + parseInt(increments[i].innerHTML);
+            let futureDose = (newTime + parseInt(increments[i].innerHTML))
+            console.log(futureDose)
+            for(let j = 0; j < 7; j++) {
+                let test = futureDose += parseInt(increments[i].innerHTML)
+                console.log(parseInt(test))
+            }
+
             if (startTime[i].innerHTML.includes("p.m.")) {
                 newTime = startDate[i].innerHTML + ' ' + newTime + " p.m."
             } else {
                 newTime = startDate[i].innerHTML + ' ' + newTime + " a.m."
             }
             txt = document.createTextNode(newTime)
+            console.log(newTime)
 
             nextDose[i].appendChild(txt)
             console.log("Still working")
