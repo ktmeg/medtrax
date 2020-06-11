@@ -97,8 +97,10 @@ function nextDose() {
     let unit = document.querySelectorAll('#unit')
     let nextDose = document.querySelectorAll('#next_dose')
     let startTime = document.querySelectorAll('#time')
+
     let upcoming = document.querySelectorAll('#upcoming')
     for (let i = 0; i < unit.length; i++) {
+        console.log(Math.floor(parseInt(startTime[i].innerHTML)))
         let today = new Date()
 
         if (unit[i].innerHTML == "Hours") {
@@ -110,26 +112,29 @@ function nextDose() {
             startDate = document.querySelectorAll('#date')
             // console.log(startDate)
             let newTime = parseInt(startTime[i].innerHTML, 10) + parseInt(increments[i].innerHTML);
+            // console.log(newTime)
             let futureDose = (newTime + parseInt(increments[i].innerHTML))
             // console.log(futureDose)
-            for (let j = 0; j < 7; j++) {
-                let upcomingDoses = futureDose += parseInt(increments[i].innerHTML)
-                upcomingText = document.createTextNode(upcomingDoses)
-                upcoming[i].appendChild(upcomingText)
-                let space = document.createTextNode(' ')
-                upcoming[i] + space
-                console.log(parseInt(upcomingDoses))
-            }
-
             if (startTime[i].innerHTML.includes("p.m.")) {
                 newTime = startDate[i].innerHTML + ' ' + newTime + " p.m."
             } else {
                 newTime = startDate[i].innerHTML + ' ' + newTime + " a.m."
             }
             txt = document.createTextNode(newTime)
-            // console.log(newTime)
+            console.log(newTime)
 
             nextDose[i].appendChild(txt)
+
+            for (let j = 0; j < 7; j++) {
+                let intTime = parseInt(newTime[j].innerHTML);
+                console.log(intTime)
+                // str1 = startTime.replace(/[^\d.]/g, '');
+                let upcomingDoses = parseInt(startTime[i], 10) += (increments[i].innerHTML, 10) //This is broken
+                upcomingText = document.createTextNode(upcomingDoses)
+                upcoming[i].appendChild(upcomingText)
+            }
+
+
 
             // console.log("Still working")
         } else if (unit[i].innerHTML == "Days") {
