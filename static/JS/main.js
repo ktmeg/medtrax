@@ -123,13 +123,26 @@ function nextDose() {
             txt = document.createTextNode(newTime)
             console.log(newTime)
 
+            let array = newTime.split(" ")
+            let time = array.length - 2
+            console.log(array[time])
+
+
             nextDose[i].appendChild(txt)
 
+            // function date(newTime) {
+            //     let arr = newTime.split(" ")
+            //     let time = arr.length - 2
+            //     return time
+            // }
+            // console.log(time)
+
             for (let j = 0; j < 7; j++) {
-                let intTime = parseInt(newTime[j].innerHTML);
-                console.log(intTime)
+                // let intTime = parseInt(newTime[j].innerHTML);
+                // console.log(intTime)
                 // str1 = startTime.replace(/[^\d.]/g, '');
-                let upcomingDoses = parseInt(startTime[i], 10) += (increments[i].innerHTML, 10) //This is broken
+                console.log(increments)
+                let upcomingDoses = time + (increments[i].innerHTML, 10) //This is broken
                 upcomingText = document.createTextNode(upcomingDoses)
                 upcoming[i].appendChild(upcomingText)
             }
