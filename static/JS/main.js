@@ -104,52 +104,34 @@ function nextDose() {
         let today = new Date()
 
         if (unit[i].innerHTML == "Hours") {
-            // console.log(today.getHours())
             hours = (today.getHours())
-            // console.log(hours)
-            // console.log(parseInt(startTime))  returns NaN
             today = mm + ' ' + dd + ', ' + yyyy
             startDate = document.querySelectorAll('#date')
-            // console.log(startDate)
             let newTime = parseInt(startTime[i].innerHTML, 10) + parseInt(increments[i].innerHTML);
-            // console.log(newTime)
             let futureDose = (newTime + parseInt(increments[i].innerHTML))
-            // console.log(futureDose)
             if (startTime[i].innerHTML.includes("p.m.")) {
                 newTime = startDate[i].innerHTML + ' ' + newTime + " p.m."
             } else {
                 newTime = startDate[i].innerHTML + ' ' + newTime + " a.m."
             }
             txt = document.createTextNode(newTime)
-            console.log(newTime)
-
-            let array = newTime.split(" ")
-            let time = array.length - 2
-            console.log(array[time])
-
-
             nextDose[i].appendChild(txt)
 
-            // function date(newTime) {
-            //     let arr = newTime.split(" ")
-            //     let time = arr.length - 2
-            //     return time
-            // }
-            // console.log(time)
+            let array = newTime.split(" ")
+            let timeIndex = array.length - 2
+            console.log(array[timeIndex])  //This returns the hour of the next medication dose, which we'll then use to calculate future doses. 
 
+            // Need to take what's on line 128 and add it to the newTime or futureDose and do it a certain number of times to indicate upcoming doses.  Empty array for time, split increments, and add those two together in the 141 chunk. 
+
+            let upcomingDoses = array[timeIndex]
             for (let j = 0; j < 7; j++) {
-                // let intTime = parseInt(newTime[j].innerHTML);
-                // console.log(intTime)
-                // str1 = startTime.replace(/[^\d.]/g, '');
-                console.log(increments)
-                let upcomingDoses = time + (increments[i].innerHTML, 10) //This is broken
+                upcomingDoses = parseInt(upcomingDoses, 10) + parseInt(increments[i].innerHTML, 10)
+                upcomingDoses = parseInt(upcomingDoses)
                 upcomingText = document.createTextNode(upcomingDoses)
                 upcoming[i].appendChild(upcomingText)
+
             }
 
-
-
-            // console.log("Still working")
         } else if (unit[i].innerHTML == "Days") {
             txt = document.createTextNode("Days")
             nextDose[i].appendChild(txt)
@@ -177,3 +159,19 @@ nextDose()
             // parseInt(today)
 
             // + parseInt(increments[i].innerHTML)
+
+// function date(newTime) {
+            //     let arr = newTime.split(" ")
+            //     let time = arr.length - 2
+            //     return time
+            // }
+            // console.log(time)
+
+            //today.getHours - array[timeIndex] + increment
+
+
+            // let arr = [20, 40, 40, 40],
+            //     sum = 0,
+            //     result = arr.map(v => sum += v);
+
+            // console.log(result)
