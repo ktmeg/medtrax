@@ -105,7 +105,8 @@ function nextDose() {
 
         if (unit[i].innerHTML == "Hours") {
             hours = (today.getHours())
-            today = mm + ' ' + dd + ', ' + yyyy
+            console.log(hours)
+            // today = mm + ' ' + dd + ', ' + yyyy
             startDate = document.querySelectorAll('#date')
             let newTime = parseInt(startTime[i].innerHTML, 10) + parseInt(increments[i].innerHTML);
             let futureDose = (newTime + parseInt(increments[i].innerHTML))
@@ -118,19 +119,27 @@ function nextDose() {
             nextDose[i].appendChild(txt)
 
             let array = newTime.split(" ")
+            console.log(array.length) //returns 5
             let timeIndex = array.length - 2
+            console.log(timeIndex)
+            console.log(array[timeIndex]) // 8, 3, and 5, which it should be
             console.log(array[timeIndex])  //This returns the hour of the next medication dose, which we'll then use to calculate future doses. 
+            console.log(parseInt(increments[i].innerHTML))
+            console.log(hours - (array[timeIndex]) + parseInt(increments[i].innerHTML) - 2)
+            nextTime = (parseInt(array[timeIndex]) + parseInt(increments[i].innerHTML))
+            txtTwo = document.createTextNode(nextTime)
+            upcoming[i].appendChild(txtTwo)
 
-            // Need to take what's on line 128 and add it to the newTime or futureDose and do it a certain number of times to indicate upcoming doses.  Empty array for time, split increments, and add those two together in the 141 chunk. 
+            // // Need to take what's on line 128 and add it to the newTime or futureDose and do it a certain number of times to indicate upcoming doses.  Empty array for time, split increments, and add those two together in the 141 chunk. 
 
-            let upcomingDoses = array[timeIndex]
-            for (let j = 0; j < 7; j++) {
-                upcomingDoses = parseInt(upcomingDoses, 10) + parseInt(increments[i].innerHTML, 10)
-                upcomingDoses = parseInt(upcomingDoses)
-                upcomingText = document.createTextNode(upcomingDoses)
-                upcoming[i].appendChild(upcomingText)
+            // let upcomingDoses = array[timeIndex]
+            // for (let j = 0; j < 7; j++) {
+            //     upcomingDoses = parseInt(upcomingDoses, 10) + parseInt(increments[i].innerHTML, 10)
+            //     upcomingDoses = parseInt(upcomingDoses)
+            //     upcomingText = document.createTextNode(upcomingDoses)
+            //     upcoming[i].appendChild(upcomingText)
 
-            }
+            // }
 
         } else if (unit[i].innerHTML == "Days") {
             txt = document.createTextNode("Days")
