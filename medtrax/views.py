@@ -90,3 +90,8 @@ def delete_med(request, pk):
     med = get_object_or_404(Meds, pk=pk)
     med.delete()
     return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+
+@login_required
+def log_dosage(request, pk):
+    med = get_object_or_404(Meds, pk=pk)
+    
