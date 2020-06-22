@@ -129,9 +129,7 @@ function nextDose() {
                 upcomingDoses = parseInt(upcomingDoses)
                 upcomingText = document.createTextNode(upcomingDoses)
                 upcoming[i].appendChild(upcomingText)
-
             }
-
         } else if (unit[i].innerHTML == "Days") {
             txt = document.createTextNode("Days")
             nextDose[i].appendChild(txt)
