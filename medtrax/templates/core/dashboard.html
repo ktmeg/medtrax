@@ -8,7 +8,7 @@
 <div class="meds-cont center">
     {% for med in meds %}
     <div class="meds">
-        Medication Name: {{med.medication}}
+        <a class="edit-delete tdn" href="{% url 'med' pk=med.pk %}">Medication Name: {{med.medication}}</a>
         <br>
         To be administered every <span id="increments">{{med.increments}}</span> <span id='unit'>{{med.unit}}</span>
         <br>
