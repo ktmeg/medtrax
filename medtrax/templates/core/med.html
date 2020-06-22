@@ -1,14 +1,14 @@
-{% extends base.html %}
+{% extends "base.html" %}
 
 {% block content %}
 
 {% for log in logs %}
-  <p>
-    <td latest_dose="{{log.latest_dose|date:'Y-m-d'}}">
-      {{log.latest_dose}}
-        <!-- <a href="/edit-record/?habit={{habit.pk}}&date={{log.latest_dose|date:'Y-m-d'}}"></a> -->
-    </td>
-  </p>
+<p>
+  <td latest_dose="{{log.latest_dose|date:'Y-m-d'}}">
+    {{log.latest_dose}}
+    <!-- <a href="/edit-record/?habit={{habit.pk}}&date={{log.latest_dose|date:'Y-m-d'}}"></a> -->
+  </td>
+</p>
 {% endfor %}
 
 {% endblock %}
