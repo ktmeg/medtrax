@@ -151,6 +151,25 @@ function logMed() {
             var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
             console.log(today)
             console.log(time)
+            dataObject = {
+                today
+            };
+            console.log(dataObject)
+            fetch("/log/new/", {
+                method: "POST",
+                credentials: "include",
+                headers: {
+                  "Content-Type": "application/json"
+                },
+                body: JSON.stringify(dataObject)
+              })
+                .then(response => response.json())
+                .then(data => {
+                  return response.json();
+                })
+                .catch(error => {
+                  //   console.error("Error:", error);
+                });
         })
     }
 }
