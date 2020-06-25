@@ -92,6 +92,15 @@ def delete_med(request, pk):
     return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
 
 @login_required
-def log_dosage(request, pk):
+def log(request, pk):
     med = get_object_or_404(Meds, pk=pk)
+    if request.method == 'POST':
+        request.body
+        data = json.loads(request.body)
+        instance = Log(**data)
+        instance.user = request.user
+        instance.save()
+        return redirect ('dashboard')
+
+
     
