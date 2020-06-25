@@ -2,13 +2,15 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import JsonResponse, HttpResponseRedirect, HttpResponsePermanentRedirect
 from .forms import MedForm, UserSignUpForm
-from .models import Patient, Meds
+from .models import Patient, Meds, Log
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth import authenticate, login
 from django.views.generic import CreateView, TemplateView
 from django.contrib.auth.decorators import login_required
 from django.db.models.functions import Cast
 from users.models import User
+import json
+from django.views.decorators.http import require_GET, require_POST
 
 # =================Sign-up View========================
 
@@ -91,14 +93,16 @@ def delete_med(request, pk):
     med.delete()
     return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
 
-@login_required
-def log(request, pk):
-    med = get_object_or_404(Meds, pk=pk)
+# @login_required
+@csrf_exempt
+def log(request):
+    # med = get_object_or_404(Meds, pk=pk)
     if request.method == 'POST':
         request.body
         data = json.loads(request.body)
         instance = Log(**data)
-        instance.user = request.user
+        # instance.med = med
+        # instance.user = request.user
         instance.save()
         return redirect ('dashboard')
 

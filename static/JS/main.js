@@ -152,7 +152,7 @@ function logMed() {
             console.log(today)
             console.log(time)
             dataObject = {
-                today
+                comments: today
             };
             console.log(dataObject)
             fetch("/log/new/", {
