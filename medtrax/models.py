@@ -40,11 +40,14 @@ class Patient(models.Model):
 
 
 class Log(models.Model):
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="user", default='')
     # latest_dose = models.DateTimeField(default=datetime.date.today)
     med = models.ForeignKey(
         to=Meds, related_name="meds_log", on_delete=models.CASCADE)
     # log_value = models.IntegerField(default=0)
     comments = models.TextField(max_length=None)
+    
 
     def __str__(self):
         return f'{self.comments}'

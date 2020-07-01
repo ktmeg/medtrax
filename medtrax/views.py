@@ -95,15 +95,17 @@ def delete_med(request, pk):
 
 # @login_required
 @csrf_exempt
-def log(request):
-    # med = get_object_or_404(Meds, pk=pk)
+def log(request, pk):
+    med = Meds.objects.get(pk=pk)
+    instance = Log(med = request.med)
+    instance = Log(user = request.user)
     if request.method == 'POST':
         request.body
         data = json.loads(request.body)
         instance = Log(**data)
         # instance.med = med
         # instance.user = request.user
-        instance.save()
+        instance.save()   
         return redirect ('dashboard')
 
 
