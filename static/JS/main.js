@@ -144,7 +144,7 @@ function nextDose() {
 let logButtons = document.querySelectorAll(".log-button")
 function logMed() {
     for (let span of logButtons) {
-        span.addEventListener("click", function(e) {
+        span.addEventListener("click", function (e) {
             e.preventDefault();
             parent = this.closest("div")
             var today = new Date();
@@ -155,20 +155,20 @@ function logMed() {
                 comments: today
             };
             console.log(dataObject)
-            fetch("log", {
+            fetch("/med/log/", {
                 method: "POST",
                 credentials: "include",
                 headers: {
-                  "Content-Type": "application/json"
+                    "Content-Type": "application/json"
                 },
                 body: JSON.stringify(dataObject)
-              })
+            })
                 .then(response => response.json())
                 .then(data => {
-                  return response.json()
+                    return response.json()
                 })
                 .catch(error => {
-                  //   console.error("Error:", error);
+                    //   console.error("Error:", error);
                 });
         })
     }
