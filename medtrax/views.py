@@ -52,9 +52,11 @@ def dashboard(request):
 
 @login_required
 def med(request, pk):
-    meds = Meds.objects.all()
+    # meds = Meds.objects.all()
+    med = get_object_or_404(Meds, pk=pk)
+    logs = Log.objects.filter(med=med)
 
-    return render(request, 'core/med.html', {'meds': meds})
+    return render(request, 'core/med.html', {'med': med, 'logs': logs})
 
 # =========================================MED FORMS===================================================
 
@@ -94,19 +96,18 @@ def delete_med(request, pk):
     return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
 
 # @login_required
+
+
 @csrf_exempt
 def log(request, pk):
     med = Meds.objects.get(pk=pk)
-    instance = Log(med = request.med)
-    instance = Log(user = request.user)
+    instance = Log(med=request.med)
+    instance = Log(user=request.user)
     if request.method == 'POST':
         request.body
         data = json.loads(request.body)
         instance = Log(**data)
-        # instance.med = med
-        # instance.user = request.user
-        instance.save()   
-        return redirect ('dashboard')
-
-
-    
+        instance.med = med
+        instance.user = request.user
+        instance.save()
+        return redirect('dashboard')

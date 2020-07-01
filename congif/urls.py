@@ -31,7 +31,7 @@ urlpatterns = [
     path('new-med/', views.new_med, name="new_med"),
     path('edit-med/<int:pk>', views.edit_med, name="edit_med"),
     path('delete-med/<int:pk>/', views.delete_med, name='delete_med'),
-    path('log', views.log, name='log'),
+    path('med/log/', views.log, name='log'),
 
 
 ]
